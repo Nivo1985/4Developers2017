@@ -25,7 +25,7 @@ namespace _1_Step
 
         public void SignFile(string owner)
         {
-            if (!this.IsValid)
+            if (this.IsFinished)
             {
                 return;
             }
