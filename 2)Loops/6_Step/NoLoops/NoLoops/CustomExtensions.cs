@@ -13,11 +13,6 @@ namespace NoLoops
             where TKey : IComparable<TKey>
         {
             var enumerable = collection as T[] ?? collection.ToArray();
-
-            //if (!enumerable.Any())
-            //{
-            //    return null;
-            //}
             
             return enumerable
                 .Select(x => Tuple.Create(x, valueFunction(x)))
@@ -25,11 +20,11 @@ namespace NoLoops
                     !enumerable.Any()
                         ? (Tuple<T, TKey>) null
                         : Tuple.Create(enumerable.First(), valueFunction(enumerable.First())), (optimal, next) =>
-                            optimal == null //||
-                            //optimal.Item2.CompareTo(next.Item2) > 0
+                            optimal == null ||
+                            optimal.Item2.CompareTo(next.Item2) > 0
                                 ? optimal
                                 : next)
-                .Item1;
+                                .Item1;
         }
     }
 }
