@@ -17,26 +17,6 @@ namespace NoLoops
             return investments.Where(x => x.InvestmentType == type)
                 .OrderByDescending(x => investments.GetIncomeAfterPeriod(numberOfYears))
                 .FirstOrDefault();
-
-
-            //double optimalValue = double.MinValue;
-            //IInvestment bestInvestment = null;
-            //foreach (var investment in investments)
-            //{
-            //    if (investment.InvestmentType == type)
-            //    {
-            //        var incomeAfterPeriod = investment.Price*
-            //                                Math.Pow(1 + investment.PercentOfValueCahnge, numberOfYears) -
-            //                                investment.Price - investment.YearlyCost*numberOfYears;
-
-            //        if (bestInvestment == null || incomeAfterPeriod > optimalValue)
-            //        {
-            //            bestInvestment = investment;
-            //        }
-            //    }        
-            //}
-
-            //return bestInvestment;
         }
     }
 }

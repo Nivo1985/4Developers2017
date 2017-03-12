@@ -19,7 +19,7 @@ namespace _3_Step
         public RequestFile(Action onActivaton)
         {
             this.Requirements = new List<object>();
-            this.RequestFileState = new InValid(onActivaton);
+            this.RequestFileState = new Invalid(onActivaton);
         }
 
         public void SignFile(string owner)

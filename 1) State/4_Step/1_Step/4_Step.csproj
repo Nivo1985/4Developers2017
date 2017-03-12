@@ -49,7 +49,7 @@
     <Compile Include="RequestFile.cs" />
     <Compile Include="StatesClasses\Active.cs" />
     <Compile Include="StatesClasses\Finished.cs" />
-    <Compile Include="StatesClasses\InValid.cs" />
+    <Compile Include="StatesClasses\Invalid.cs" />
     <Compile Include="StatesClasses\Suspended.cs" />
   </ItemGroup>
   <ItemGroup>

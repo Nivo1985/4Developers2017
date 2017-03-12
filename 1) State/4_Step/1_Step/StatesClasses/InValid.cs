@@ -9,11 +9,11 @@ using _3_Step.StatesClasses;
 
 namespace _4_Step.StatesClasses
 {
-    class InValid : IRequestFileState
+    class Invalid : IRequestFileState
     {
         private Action OnActivation { get; set; }
 
-        public InValid(Action onActivation)
+        public Invalid(Action onActivation)
         {
             this.OnActivation = onActivation;
         }
