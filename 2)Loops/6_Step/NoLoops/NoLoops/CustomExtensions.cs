@@ -18,8 +18,9 @@ namespace NoLoops
                 .Select(x => Tuple.Create(x, valueFunction(x)))
                 .Aggregate(
                     !enumerable.Any()
-                        ? (Tuple<T, TKey>) null
-                        : Tuple.Create(enumerable.First(), valueFunction(enumerable.First())), (optimal, next) =>
+                        ? (Tuple<T, TKey>)null
+                        : Tuple.Create(enumerable.First(), valueFunction(enumerable.First())),
+                    (optimal, next) =>
                             optimal == null ||
                             optimal.Item2.CompareTo(next.Item2) > 0
                                 ? optimal

@@ -24,7 +24,6 @@ namespace _3_Step
 
         public void SignFile(string owner)
         {
-
             this.RequestFileState = this.RequestFileState.SignFile(() => this.Owner = owner);
         }
 
