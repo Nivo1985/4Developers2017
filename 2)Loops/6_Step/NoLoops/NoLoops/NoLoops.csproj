@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomExtensions.cs" />
+    <Compile Include="CustomTuple.cs" />
     <Compile Include="Investment.cs" />
     <Compile Include="InvestmentType.cs" />
     <Compile Include="IInvestment.cs" />

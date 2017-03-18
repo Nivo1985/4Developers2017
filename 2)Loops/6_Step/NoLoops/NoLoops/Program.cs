@@ -49,7 +49,7 @@ namespace NoLoops
         private static IInvestment FindInvestmentForPeriod(double numberOfYears, InvestmentType type, IEnumerable<IInvestment> investments)
         {
             return investments.Where(x => x.InvestmentType == type)
-                .Optional(x => x.GetIncomeAfterPeriod(numberOfYears));
+                .Optimal(x => x.GetIncomeAfterPeriod(numberOfYears));
         }
     }
 }

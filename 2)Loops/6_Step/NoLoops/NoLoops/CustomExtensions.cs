@@ -8,24 +8,24 @@ namespace NoLoops
 {
     public static class CustomExtensions
     {
-        public static T Optional<T, TKey>(this IEnumerable<T> collection, Func<T, TKey> valueFunction)
+        public static T Optimal<T, TKey>(this IEnumerable<T> collection, Func<T, TKey> valueFunction)
             where T : class
             where TKey : IComparable<TKey>
         {
             var enumerable = collection as T[] ?? collection.ToArray();
             
             return enumerable
-                .Select(x => Tuple.Create(x, valueFunction(x)))
+                .Select(x => CustomTuple<T, TKey>.Create(x, valueFunction(x)))
                 .Aggregate(
                     !enumerable.Any()
-                        ? (Tuple<T, TKey>)null
-                        : Tuple.Create(enumerable.First(), valueFunction(enumerable.First())),
+                        ? (CustomTuple<T, TKey>)null
+                        : CustomTuple<T, TKey>.Create(enumerable.First(), valueFunction(enumerable.First())),
                     (optimal, next) =>
                             optimal == null ||
-                            optimal.Item2.CompareTo(next.Item2) > 0
+                            optimal.CollectionObjectKey.CompareTo(next.CollectionObjectKey) > 0
                                 ? optimal
                                 : next)
-                                .Item1;
+                                .CollectionObject;
         }
     }
 }
